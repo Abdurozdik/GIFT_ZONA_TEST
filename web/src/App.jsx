@@ -182,7 +182,7 @@ function App() {
   }
 
   // Основное приложение с WebSocket провайдером
-  const API_URL = process.env.REACT_APP_API_URL || 'https://gift-zona-server.onrender.com';
+  const API_URL = 'https://gift-zona-test-server-d3fbi23e5dus739kets0.onrender.com';
   
   return (
     <WebSocketProvider apiUrl={API_URL}>
