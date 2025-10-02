@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: gift-zona-server
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gift-zona-db
+          property: connectionString
+      - key: API_ID
+        value: "YOUR_API_ID"
+      - key: API_HASH
+        value: "YOUR_API_HASH"
+      - key: BOT_TOKEN
+        value: "YOUR_BOT_TOKEN"
+      - key: PYROGRAM_SESSION_STRING
+        value: "YOUR_SESSION_STRING"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_JWT_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        value: "admin123"
+      - key: FRONTEND_URL
+        value: "https://gift-zona.vercel.app"
+      - key: PORT
+        value: "4000"
+
+databases:
+  - name: gift-zona-db
+    databaseName: gift_zona
+    user: gift_zona_user
+    region: frankfurt
+    plan: free

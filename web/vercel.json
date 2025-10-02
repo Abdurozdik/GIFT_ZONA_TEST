@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://gift-zona-test-server.onrender.com",
+    "REACT_APP_WS_URL": "wss://gift-zona-test-server.onrender.com"
+  }
+}
