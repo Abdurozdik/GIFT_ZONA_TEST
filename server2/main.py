@@ -124,6 +124,21 @@ async def get_events():
         "message": "База данных отключена"
     }
 
+# Webhook endpoint для Telegram бота
+@app.post("/webhook")
+async def telegram_webhook(request: Request):
+    """Webhook для получения обновлений от Telegram бота"""
+    try:
+        body = await request.json()
+        logger.info(f"📨 Получен webhook от Telegram: {body}")
+        
+        # В упрощенной версии просто логируем и возвращаем OK
+        return {"ok": True, "message": "Webhook получен"}
+        
+    except Exception as e:
+        logger.error(f"❌ Ошибка обработки webhook: {e}")
+        return {"ok": False, "error": str(e)}
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "8000"))
