@@ -4,7 +4,7 @@ import EventsPage from "./pages/EventsPage";
 import ProfilePage from "./pages/ProfilePage";
 import LoadingSpinner from "./components/LoadingSpinner";
 import { WebSocketProvider } from "./services/websocket";
-import apiService from "./services/api";
+// import apiService from "./services/api";
 
 /**
  * Главное приложение беттинг платформы
@@ -98,6 +98,7 @@ function App() {
   };
 
   // Компонент навигации
+  // eslint-disable-next-line no-unused-vars
   const Navigation = () => (
     <div style={{
       position: 'fixed',
